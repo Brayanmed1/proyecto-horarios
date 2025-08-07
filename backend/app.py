@@ -1,3 +1,7 @@
+@app.route('/ping', methods=['GET'])
+def ping():
+    return 'pong', 200
+
 from flask import Flask
 from flask_cors import CORS
 
