@@ -1,4 +1,3 @@
-# utils/db.py
 import os
 import psycopg2
 from urllib.parse import urlparse
@@ -6,7 +5,7 @@ from urllib.parse import urlparse
 def get_connection():
     db_url = os.getenv('DATABASE_URL')
     if db_url:
-        # Producción: usa la URL de Railway
+        # Producción: parsea la URL que Railway inyecta
         result = urlparse(db_url)
         return psycopg2.connect(
             host=result.hostname,
@@ -16,8 +15,7 @@ def get_connection():
             port=result.port
         )
     else:
-        # Desarrollo: importa la configuración local
-        # Aquí config.py está en la carpeta raíz del proyecto
+        # Desarrollo local: carga la config de config.py
         from config import DB_CONFIG
         return psycopg2.connect(
             host=DB_CONFIG['host'],
