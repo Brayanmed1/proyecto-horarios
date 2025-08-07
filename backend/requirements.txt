@@ -1,5 +1,19 @@
-Flask
-flask-cors
-python-dotenv 
-psycopg2-binary
-gunicorn
+# requirements.txt
+
+# Web framework
+Flask>=2.0
+
+# CORS support
+flask-cors>=3.0
+
+# Load .env files
+python-dotenv>=1.0
+
+# PostgreSQL driver
+psycopg2-binary>=2.9
+
+# HTTP server for production
+gunicorn>=23.0
+
+# (Opcional) Generative AI client — solo si usas la sugerencia de IA
+# google-generativeai>=0.1
